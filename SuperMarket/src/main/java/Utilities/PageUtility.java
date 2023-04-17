@@ -46,7 +46,7 @@ public class PageUtility
 		return element.getText();
 		}
 		
-     	public static void clickAndHoldOnElement(WebElement element, WebDriver driver)
+		public static void clickAndHoldOnElement(WebElement element, WebDriver driver)
      	{
 		Actions actions = new Actions(driver);
 		actions.clickAndHold(element).build().perform();
