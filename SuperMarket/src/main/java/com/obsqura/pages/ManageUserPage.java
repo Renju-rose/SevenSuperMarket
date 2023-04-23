@@ -19,6 +19,12 @@ public class ManageUserPage {
 	@FindBy(xpath="//p[text()='Manage Users']//parent::a")
 	WebElement ManageUserElement;
 	
+	@FindBy(xpath="//i[@class='fa fa-angle-double-down']")
+	WebElement PasswordShowDetailsButtonElement;
+	
+	@FindBy(xpath="//div[@class='profile-info-name']")
+	WebElement PasswordShowDetails;
+	
 	@FindBy(xpath="//span[text()='Active']")
 	WebElement ActiveButtonElement;
 	
@@ -34,6 +40,14 @@ public class ManageUserPage {
 	public void clickOnManageUser()
     {
     	PageUtility.clickOnElement(ManageUserElement);
+    }
+	public void clickOnPasswordShowDetailsButton()
+    {
+    	PageUtility.clickOnElement(PasswordShowDetailsButtonElement);
+    }
+	public boolean PasswordShowDetailsIsDisplayed()
+    {
+    	return PageUtility.isElementDisplayed(PasswordShowDetails);
     }
 	public String getUrlOfManageUser()
     {

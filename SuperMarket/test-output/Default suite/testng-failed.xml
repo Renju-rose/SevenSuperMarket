@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.obsqura.testscripts.DeliveryBoyTest">
+      <class name="com.obsqura.testscripts.ManageLocationTest">
         <methods>
-          <include name="initializeBrowser"/>
-          <include name="verifyFontWeightofSearchButton"/>
+          <include name="verifyLocationAddingFunctionality"/>
+          <include name="initialiseBrowser"/>
           <include name="browserQuit"/>
         </methods>
-      </class> <!-- com.obsqura.testscripts.DeliveryBoyTest -->
+      </class> <!-- com.obsqura.testscripts.ManageLocationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

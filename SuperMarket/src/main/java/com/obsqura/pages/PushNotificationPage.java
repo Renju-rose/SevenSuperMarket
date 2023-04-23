@@ -28,6 +28,9 @@ public class PushNotificationPage {
 	@FindBy(xpath="//button[@type='submit']")
 	WebElement SendButtonElement;
 	
+	@FindBy(xpath="//div[@class='col-md-12']")
+	WebElement AlertMessageFieldElement;
+	
 	public void clickPushNotification()
     {
     	PageUtility.clickOnElement(PushNotificationElement);
@@ -60,6 +63,14 @@ public class PushNotificationPage {
     {
     	return driver.getCurrentUrl();
     }
+	public boolean  greaterLocationComparisonOfDescriptionFieldAndTitleField()
+	{
+		return PageUtility.greaterComparisonY(DescriptionFieldElement, TitleFieldElement);
+	}
+	public boolean AlertMessageFieldDisplayed()
+	{
+		return  AlertMessageFieldElement.isDisplayed();
+	}
 	
 	
 }

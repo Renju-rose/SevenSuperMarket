@@ -7,35 +7,18 @@
 <parameter name="username" value="admin"/>
 <parameter name="password" value="admin"/>
 
- <test thread-count="5" name="crossbrowsing">
+ <test thread-count="1" name="testng">
 <parameter name="browser" value="chrome"></parameter>
  <classes>
-     <class name="com.obsqura.testscripts.LoginTest">
+     <class name="com.obsqura.testscripts.ManageLocationTest">
      <methods>
-         <include name="verifyingUsingValidCredentials"></include>
-         <include name="verifyLoginPage"></include>
-         <include name="verifyingUsingInvalidCredentials"></include>
-         <include name="verifyingUsingValidUserNameAndInvalidPassword"></include>
-     </methods>
-    </class>
-   <class name="com.obsqura.testscripts.DeliveryBoyTest">
-     <methods>
-         <include name="verifyDeliveryBoyNavigation"></include>
-          <include name="verifyFontWeightofSearchButton"></include>
-      </methods>
-    </class>
-     <class name="com.obsqura.testscripts.ManageUserTest">
-     <methods>
-         <include name="verifyManageUserNavigation"></include>
+          <include name="verifyLocationAddingFunctionality"></include>
+          <include name="verifyIfSearchButtonisAlignedAfterNewButton"></include>
+          <include name="verifyEditButtonFunctionalityInManageLocationField"></include>
+         <include name="verifyDeleteButtonFunctionalityInManageLocationField"></include>
          <include name="verifyColorofSearchButton"></include>
      </methods>
     </class>
-   <class name="com.obsqura.testscripts.PushNotificationTest">
-     <methods>
-         <include name="verifyPushNotificationNavigation"></include>
-         <include name="enterValueInPushNotification"></include>
-     </methods>
-    </class>
-   </classes>
+</classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

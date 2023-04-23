@@ -3,7 +3,9 @@ package Utilities;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -45,6 +47,10 @@ public class PageUtility
 		{
 		return element.getText();
 		}
+		public static List<WebElement> findRowElements(WebElement element)
+		{
+		return element.findElements(By.tagName("tbody"));
+		}
 		
 		public static void clickAndHoldOnElement(WebElement element, WebDriver driver)
      	{
@@ -56,6 +62,40 @@ public class PageUtility
 		{
 		Select select = new Select(element);
 		select.selectByVisibleText(text);
+		}
+		public static void getLocationofX1(WebElement element) 
+		{
+			Point location=element.getLocation();
+			int elementLocationX1=location.getX();
+		}
+		public static void getLocationofX2(WebElement element) 
+		{
+			Point location=element.getLocation();
+			int elementLocationX2=location.getX();
+		}
+		public static Boolean greaterComparisonX(WebElement element1,WebElement element2)
+		{
+			Point location1=element1.getLocation();
+			Point location2=element2.getLocation();
+		    boolean greaterLocation;
+			return greaterLocation=location1.getX()>location2.getX();
+		}
+		public static void getLocationofY1(WebElement element) 
+		{
+			Point location=element.getLocation();
+			int elementLocationY1=location.getY();
+		}
+		public static void getLocationofY2(WebElement element) 
+		{
+			Point location=element.getLocation();
+			int elementLocationY2=location.getY();
+		}
+		public static Boolean greaterComparisonY(WebElement element1,WebElement element2)
+		{
+			Point location1=element1.getLocation();
+			Point location2=element2.getLocation();
+		    boolean greaterLocation;
+			return greaterLocation=location1.getY()>location2.getY();
 		}
 
 		public static void selectDropdownbyIndex(WebElement element, int index)
@@ -167,7 +207,7 @@ public class PageUtility
 
 		}
 
-		public String selectFuncbyVisibletext(WebElement element, String visibletext) 
+		public static String selectFuncbyVisibletext(WebElement element, String visibletext) 
 		{
 			Select select = new Select(element);
 			select.selectByVisibleText(visibletext);
@@ -176,7 +216,7 @@ public class PageUtility
 
 		}
 
-		public String FirstSelectedOption(WebElement element)
+		public static String FirstSelectedOption(WebElement element)
 		{
 			Select select1 = new Select(element);
 			String firstoption = select1.getFirstSelectedOption().getText();
@@ -215,7 +255,7 @@ public class PageUtility
 			return element.isSelected();
 		}
 
-		public List<String> addList(List<String>list,String s) 
+		public static List<String> addList(List<String>list,String s) 
 		{
 
 			list.add(s);

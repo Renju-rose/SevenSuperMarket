@@ -1,5 +1,6 @@
 package com.obsqura.testscripts;
 
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import java.io.IOException;
@@ -16,24 +17,22 @@ public class ManageUserTest extends Base{
 	ManageUserPage manageUserPage ;
 	Login login;
 	@Test
-	public void verifyManageUserNavigation() throws IOException 
+	public void verifyPasswordShowDetailsFunctionality() throws IOException 
 	{
-		String expectedUrl=ExcelUtility.getString(0, 1, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"ManageUser");
 		login=new Login(driver);
-		login.verifyingUsingValidCredentials();
+		login.logintoDashboard();
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
 		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(0, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
 		manageUserPage=new ManageUserPage(driver);
-		manageUserPage.clickOnManageUser();
-		assertEquals(expectedUrl,manageUserPage.getUrlOfManageUser(),"Url's are not same");
+		manageUserPage.clickOnPasswordShowDetailsButton();
+		assertTrue(manageUserPage.PasswordShowDetailsIsDisplayed(),"Password Details are not displaying");
 	}
 	@Test
 	public void verifyColorofSearchButton() throws IOException
 	{
 		String expectedColorOfSearchButton=ExcelUtility.getString(1, 1, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"ManageUser");
 		login=new Login(driver);
-		login.verifyingUsingValidCredentials();
-		manageUserPage=new ManageUserPage(driver);
+		login.logintoDashboard();
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
 		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(0, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
 		manageUserPage=new ManageUserPage(driver);

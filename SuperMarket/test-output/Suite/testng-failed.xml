@@ -6,16 +6,16 @@
   <listeners>
     <listener class-name="com.obsqura.testscripts.Listeners"/>
   </listeners>
-  <test thread-count="5" name="crossbrowsing(failed)">
+  <test thread-count="5" name="testng(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.obsqura.testscripts.DeliveryBoyTest">
+      <class name="com.obsqura.testscripts.ManageProductTest">
         <methods>
-          <include name="initializeBrowser"/>
-          <include name="verifyColorofSearchButton"/>
+          <include name="initialiseBrowser"/>
+          <include name="verifySearchFunctionalityOfManageProduct"/>
           <include name="browserQuit"/>
         </methods>
-      </class> <!-- com.obsqura.testscripts.DeliveryBoyTest -->
+      </class> <!-- com.obsqura.testscripts.ManageProductTest -->
     </classes>
-  </test> <!-- crossbrowsing(failed) -->
+  </test> <!-- testng(failed) -->
 </suite> <!-- Failed suite [Suite] -->

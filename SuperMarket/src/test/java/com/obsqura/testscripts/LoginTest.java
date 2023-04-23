@@ -39,7 +39,7 @@ public class LoginTest extends Base
 		loginpage.enterPasswordInPasswordField(password);
 		assertTrue(loginpage.SignInButtonEnabled(),"SignIn Button is not Enabled");
 		loginpage.clickSignInButton();
-		assertNotEquals(expectedUrl,loginpage.getTitleofLogin(),"Invalid Username & Password");
+		assertEquals(expectedUrl,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
 	@DataProvider(name="LoginProvider")
 	public Object[][] getDataFromDataprovider()
@@ -66,7 +66,7 @@ public class LoginTest extends Base
 		loginpage.enterPasswordInPasswordField(password);
 		assertTrue(loginpage.SignInButtonEnabled(),"SignIn Button is not Enabled");
 		loginpage.clickSignInButton();
-		assertNotEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
+		assertEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
 	@Test
 	public void verifyingUsingInvalidCredentials() throws IOException
@@ -81,7 +81,7 @@ public class LoginTest extends Base
 		loginpage.enterPasswordInPasswordField(password);
 		assertTrue(loginpage.SignInButtonEnabled(),"SignIn Button is not Enabled");
 		loginpage.clickSignInButton();
-		assertNotEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
+		assertEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
 	
 }

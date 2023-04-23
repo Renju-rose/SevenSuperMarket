@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="methods" thread-count="3">
-<parameter name="admin" value="admin"/>
-<parameter name="renju" value="renju"/>
-<test thread-count="5" name="Test">
+<suite name="Suite" parallel="methods" thread-count="1" >
+<listeners>
+<listener class-name="com.obsqura.testscripts.Listeners"/>
+</listeners>
+<parameter name="username" value="admin"/>
+<parameter name="password" value="admin"/>
+
+ <test thread-count="5" name="crossbrowsing">
 <parameter name="browser" value="chrome"></parameter>
-    <classes>
-       <class name="com.obsqura.testscripts.LoginTest">
-        <methods>
-         <include name="verifyingUsingValidCredentials"></include>
-         <include name="verifyLoginPage"></include>
-         <include name="verifyingUsingInvalidCredentials"></include>
-        </methods>
-       </class>
-    </classes>
+ <classes>
+     <class name="com.obsqura.testscripts.ManageLocationTest">
+     <methods>
+         <include name="verifyLocationAddingFunctionality"></include>
+         <!-- <include name="enterValueInPushNotification"></include>-->
+     </methods>
+    </class>
+   </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
