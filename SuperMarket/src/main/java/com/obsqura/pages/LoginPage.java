@@ -26,29 +26,21 @@ public class LoginPage
 	@FindBy(xpath="//button[@type='submit']")
 	WebElement SigninButtonElement;
 	
-	public boolean UserNameFieldDisplayed()
-	{
-		return  PageUtility.isElementDisplayed(UserNameFieldElement);
-	}
-	public void enterTextInUserNameField(String username)
+	
+	public LoginPage enterTextInUserNameField(String username)
     {
     	PageUtility.enterText(UserNameFieldElement, username);
+    	return this;
     }
-	public boolean PasswordFieldDisplayed()
-	{
-		return  PageUtility.isElementDisplayed(PasswordFieldElement);
-	}
-	public void enterPasswordInPasswordField(String password)
+	public LoginPage enterPasswordInPasswordField(String password)
     {
     	PageUtility.enterText(PasswordFieldElement, password);
+    	return this;
     }
-	public boolean SignInButtonEnabled()
-	{
-		return  PageUtility.isElementEnabled(SigninButtonElement);
-	}
-	public void clickSignInButton()
+	public LoginPage clickSignInButton()
     {
     	PageUtility.clickOnElement(SigninButtonElement);
+    	return this;
     }
 	public String getTitleofLogin()
 	{

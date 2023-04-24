@@ -49,7 +49,7 @@ public class PageUtility
 		}
 		public static List<WebElement> findRowElements(WebElement element)
 		{
-		return element.findElements(By.tagName("tbody"));
+		return element.findElements(By.tagName("tr"));
 		}
 		
 		public static void clickAndHoldOnElement(WebElement element, WebDriver driver)
@@ -103,9 +103,22 @@ public class PageUtility
 		Select select = new Select(element);
 		select.selectByIndex(index);
 		}
-
-
-		public static WebElement enterIntValue(WebElement element, CharSequence[] value)
+		public static  void scrollDownOperation(WebDriver driver) 
+		{
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,729)");
+		}
+		public static String getAttributeElementOfhref(WebElement element)
+		{
+			return element.getAttribute("href");
+		}
+		public static  void scrollIntoView(WebDriver driver) 
+		{
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			Object myelement = null;
+			js.executeScript("arguments[0].scrollIntoView()", myelement); 
+	     }
+        public static WebElement enterIntValue(WebElement element, CharSequence[] value)
 		{
 		element.sendKeys(value);
 		return element;

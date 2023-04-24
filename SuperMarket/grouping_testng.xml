@@ -14,7 +14,7 @@
    </run>		
   </groups>
     <classes>
-        <class name="com.obsqura.testscripts.DeliveryBoyTest">
+        <class name="com.obsqura.testscripts.PushNotificationTest">
        </class>
     </classes>
   </test> <!-- Test -->

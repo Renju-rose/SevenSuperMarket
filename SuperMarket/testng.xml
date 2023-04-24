@@ -10,13 +10,9 @@
  <test thread-count="1" name="testng">
 <parameter name="browser" value="chrome"></parameter>
  <classes>
-     <class name="com.obsqura.testscripts.ManageLocationTest">
+   <class name="com.obsqura.testscripts.ManageProductTest">
      <methods>
-          <include name="verifyLocationAddingFunctionality"></include>
-          <include name="verifyIfSearchButtonisAlignedAfterNewButton"></include>
-          <include name="verifyEditButtonFunctionalityInManageLocationField"></include>
-         <include name="verifyDeleteButtonFunctionalityInManageLocationField"></include>
-         <include name="verifyColorofSearchButton"></include>
+        <include name="verifySearchFunctionalityOfManageProduct"></include>
      </methods>
     </class>
 </classes>

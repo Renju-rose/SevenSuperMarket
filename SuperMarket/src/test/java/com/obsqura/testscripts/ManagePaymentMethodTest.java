@@ -1,5 +1,6 @@
 package com.obsqura.testscripts;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ import Utilities.ExcelUtility;
 public class ManagePaymentMethodTest extends Base{
 	ManagePaymentMethodPage managePaymentMethodPage ;
 	Login login;
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	public void verifyEditFunctionalityOfManagePayment() throws IOException
 	{
 		String paymentType=ExcelUtility.getString(0, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"ManagePayment");
@@ -25,9 +26,7 @@ public class ManagePaymentMethodTest extends Base{
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
 		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(6, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
 		managePaymentMethodPage=new ManagePaymentMethodPage(driver);
-		managePaymentMethodPage.clickOnEditButton();
-		managePaymentMethodPage.enterValueInAmountField(paymentType);
-		managePaymentMethodPage.clickOnUpdateButton();
+		managePaymentMethodPage.clickOnEditButton().enterValueInAmountField(paymentType).enterValueInAmountField(amount).clickOnUpdateButton();
 		assertTrue(managePaymentMethodPage.AlertMessageFieldDisplayed(),"Amount Field is not getting updated");
 		
 	}

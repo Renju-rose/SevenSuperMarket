@@ -43,9 +43,10 @@ public class ManageSliderPage {
     	PageUtility.clickOnElement(NewButtonElement);
     	return this;
     }
-	public void enterTextInLinkField(String link)
+	public ManageSliderPage enterTextInLinkField(String link)
     {
     	PageUtility.enterText(LinkFieldElement, link);
+    	return this;
     }
 	public ManageSliderPage clickOnSaveButton()
     {

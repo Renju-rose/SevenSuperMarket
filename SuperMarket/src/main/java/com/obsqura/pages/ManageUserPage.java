@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utilities.PageUtility;
+import Utilities.WaitUtility;
 
 public class ManageUserPage {
 	WebDriver driver;
@@ -31,19 +32,27 @@ public class ManageUserPage {
 	@FindBy(xpath="//input[@id='description']")
 	WebElement AlertMessageElement;
 	
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	WebElement AlertMessageFieldElement;
+	
 	@FindBy(xpath="//a[@onclick='click_button(2)']")
 	WebElement SearchButtonElement;
 	
 	@FindBy(xpath="//button[@type='submit']")
 	WebElement SendButtonElement;
 	
-	public void clickOnManageUser()
+	@FindBy(xpath="//a[@role='button']")
+	WebElement StatusButtonElement;
+	
+	public ManageUserPage clickOnManageUser()
     {
     	PageUtility.clickOnElement(ManageUserElement);
+    	return this;
     }
-	public void clickOnPasswordShowDetailsButton()
+	public ManageUserPage clickOnPasswordShowDetailsButton()
     {
     	PageUtility.clickOnElement(PasswordShowDetailsButtonElement);
+    	return this;
     }
 	public boolean PasswordShowDetailsIsDisplayed()
     {
@@ -56,6 +65,22 @@ public class ManageUserPage {
 	public String colorOfSearchButton()
 	{
 		return PageUtility.getCssValueOfElement(SearchButtonElement,"color");
+	}
+	public String getBackGroundColorOfStatusButton()
+	{
+		return PageUtility.getCssValueOfElement(StatusButtonElement, "background-color");
+	}
+	public ManageUserPage clickOnStatus()
+	{
+		PageUtility.getAttributeElementOfhref(StatusButtonElement);
+		WaitUtility.waitForElementClickable(driver, StatusButtonElement);
+		getBackGroundColorOfStatusButton().equals(StatusButtonElement);
+		PageUtility.clickOnElement(StatusButtonElement);
+		return this;
+	}
+	public boolean AlertMessageFieldDisplayed()
+	{
+		return  PageUtility.isElementDisplayed(AlertMessageFieldElement);
 	}
 
 }

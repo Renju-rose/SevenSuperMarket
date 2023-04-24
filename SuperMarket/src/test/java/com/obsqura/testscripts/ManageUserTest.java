@@ -16,7 +16,7 @@ public class ManageUserTest extends Base{
 	
 	ManageUserPage manageUserPage ;
 	Login login;
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	public void verifyPasswordShowDetailsFunctionality() throws IOException 
 	{
 		login=new Login(driver);
@@ -25,9 +25,20 @@ public class ManageUserTest extends Base{
 		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(0, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
 		manageUserPage=new ManageUserPage(driver);
 		manageUserPage.clickOnPasswordShowDetailsButton();
-		assertTrue(manageUserPage.PasswordShowDetailsIsDisplayed(),"Password Details are not displaying");
+		assertTrue(manageUserPage.PasswordShowDetailsIsDisplayed(),"Password Details are not displaying in Manage User Page");
 	}
-	@Test
+	@Test (retryAnalyzer = Retry.class)
+	public void verifyStatusChangeActiveAndInActive() throws IOException
+	{
+		 login=new Login(driver);
+		 login.logintoDashboard();
+		 SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
+		 SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(0, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
+		 manageUserPage=new ManageUserPage(driver);
+		 manageUserPage.clickOnStatus();
+		 assertTrue(manageUserPage.AlertMessageFieldDisplayed(),"Status is not changing properly in Manage User Page");
+    }
+	@Test (retryAnalyzer = Retry.class)
 	public void verifyColorofSearchButton() throws IOException
 	{
 		String expectedColorOfSearchButton=ExcelUtility.getString(1, 1, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"ManageUser");

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <parameter name="password" value="admin"/>
-  <parameter name="username" value="admin"/>
-  <listeners>
-    <listener class-name="com.obsqura.testscripts.Listeners"/>
-  </listeners>
-  <test thread-count="5" name="testng(failed)">
-    <parameter name="browser" value="chrome"/>
+  <test thread-count="5" name="FirefoxTest(failed)">
+    <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.obsqura.testscripts.ManageProductTest">
+      <class name="com.obsqura.testscripts.ManagePaymentMethodTest">
         <methods>
           <include name="initialiseBrowser"/>
-          <include name="verifySearchFunctionalityOfManageProduct"/>
+          <include name="verifyEditFunctionalityOfManagePayment"/>
           <include name="browserQuit"/>
         </methods>
-      </class> <!-- com.obsqura.testscripts.ManageProductTest -->
+      </class> <!-- com.obsqura.testscripts.ManagePaymentMethodTest -->
     </classes>
-  </test> <!-- testng(failed) -->
+  </test> <!-- FirefoxTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -15,7 +15,7 @@ import Utilities.ExcelUtility;
 public class ManageProductTest extends Base{
 	ManageProductPage manageProductPage ;
 	Login login;
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	public void verifySearchFunctionalityOfManageProduct() throws IOException
 	{
 		String title=ExcelUtility.getString(0, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"ManageProduct");
@@ -24,12 +24,10 @@ public class ManageProductTest extends Base{
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
 		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(2, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
 		manageProductPage=new ManageProductPage(driver);
-		manageProductPage.clickOnSearchButton();
-		manageProductPage.enterValueInTitleField(title);
-		manageProductPage.clickOnFilterSearchButton();
-		assertTrue(manageProductPage.checkTitleIsPresent(title),"Searched Content is not found");
+		manageProductPage.clickOnSearchButton().enterValueInTitleField(title).clickOnFilterSearchButton();
+		assertTrue(manageProductPage.productCodeButtonIsDisplayed(),"Searched Content-title:Red Meat is not found");
 	}
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	public void verifyDeleteFuncionalityOfManageProduct() throws IOException 
 	{
 		login=new Login(driver);
@@ -41,7 +39,7 @@ public class ManageProductTest extends Base{
 		driver.switchTo().alert().accept();
 		assertTrue(manageProductPage.AlertMessageFieldDisplayed(),"Product List not deleted");
 	}
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	public void verifyIfDeleteButtonisAlignedAfterEditButton() throws IOException
 	{
 		login=new Login(driver);

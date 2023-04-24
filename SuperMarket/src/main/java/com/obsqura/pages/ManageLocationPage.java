@@ -46,38 +46,46 @@ public class ManageLocationPage {
 	@FindBy(xpath="//div[@class='col-sm-12']")
 	WebElement AlertMessageFieldElement;
 	
-	public void clickOnManageLocation()
+	public ManageLocationPage clickOnManageLocation()
     {
     	PageUtility.clickOnElement(manageLocationElement);
+    	return this;
     }
-	public void clickOnNewButton()
+	public ManageLocationPage clickOnNewButton()
     {
     	PageUtility.clickOnElement(NewButtonElement);
+    	return this;
     }
-	public void enterValueInLocationField(String locationName)
+	public ManageLocationPage enterValueInLocationField(String locationName)
     {
     	PageUtility.enterText(LocationElement, locationName);
+    	return this;
     }
-	public void clickOnEditButton()
+	public ManageLocationPage clickOnEditButton()
     {
     	PageUtility.clickOnElement(EditButtonElement);
+    	return this;
     }
-	public void clickOnUpdateButton()
+	public ManageLocationPage clickOnUpdateButton()
     {
     	PageUtility.clickOnElement(UpdateButtonElement);
+    	return this;
     }
-	public void clickOnDeleteButton()
+	public ManageLocationPage clickOnDeleteButton()
     {
     	PageUtility.clickOnElement(DeleteButtonElement);
+    	return this;
     }
 	
-	public void enterValueInDeliveryChargeField(String deliveryCharge)
+	public ManageLocationPage enterValueInDeliveryChargeField(String deliveryCharge)
     {
     	PageUtility.enterText(DeliveryChargeElement, deliveryCharge);
+    	return this;
     }
-	public void clickOnSaveButton()
+	public ManageLocationPage clickOnSaveButton()
     {
     	PageUtility.clickOnElement(SaveButtonElement);
+    	return this;
     }
 	public boolean AlertMessageFieldDisplayed()
 	{

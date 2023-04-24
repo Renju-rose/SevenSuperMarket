@@ -31,21 +31,25 @@ public class ManagePaymentMethodPage {
 	@FindBy(xpath="//div[@class='col-sm-12']")
 	WebElement AlertMessageFieldElement;
 	
-	public void clickOnEditButton()
+	public ManagePaymentMethodPage clickOnEditButton()
     {
     	PageUtility.clickOnElement(EditButtonElement);
+    	return this;
     }
-	public void enterValueInPaymentTypeField(String paymentType)
+	public ManagePaymentMethodPage enterValueInPaymentTypeField(String paymentType)
     {
     	PageUtility.enterText(PaymentMethodFieldElement, paymentType);
+    	return this;
     }
-	public void enterValueInAmountField(String amount)
+	public ManagePaymentMethodPage enterValueInAmountField(String amount)
     {
     	PageUtility.enterText(PaymentMethodFieldElement, amount);
+    	return this;
     }
-	public void clickOnUpdateButton()
+	public ManagePaymentMethodPage clickOnUpdateButton()
     {
     	PageUtility.clickOnElement(UpdateButtonElement);
+    	return this;
     }
 	public boolean AlertMessageFieldDisplayed()
 	{

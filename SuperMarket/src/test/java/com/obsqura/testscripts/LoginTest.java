@@ -14,18 +14,13 @@ import Utilities.ExcelUtility;
 public class LoginTest extends Base
 {
 	LoginPage loginpage;
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	@Parameters({"username","password"})
 	public void verifyingUsingValidCredentials(String username,String password) throws IOException
 	{
 		String expectedTitle=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		loginpage=new LoginPage(driver);
-		assertTrue(loginpage.UserNameFieldDisplayed(),"UserName field is not Displayed");
-		loginpage.enterTextInUserNameField(username);
-		assertTrue(loginpage.PasswordFieldDisplayed(),"Password field is not Displayed");
-		loginpage.enterPasswordInPasswordField(password);
-		assertTrue(loginpage.SignInButtonEnabled(),"SignIn Button is not Enabled");
-		loginpage.clickSignInButton();
+		loginpage.enterTextInUserNameField(username).enterPasswordInPasswordField(password).clickSignInButton();
 		assertEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
 	@Test(dataProvider="LoginProvider")
@@ -33,12 +28,7 @@ public class LoginTest extends Base
 	{
 		String expectedUrl=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		loginpage=new LoginPage(driver);
-		assertTrue(loginpage.UserNameFieldDisplayed(),"UserName field is not Displayed");
-		loginpage.enterTextInUserNameField(username);
-		assertTrue(loginpage.PasswordFieldDisplayed(),"Password field is not Displayed");
-		loginpage.enterPasswordInPasswordField(password);
-		assertTrue(loginpage.SignInButtonEnabled(),"SignIn Button is not Enabled");
-		loginpage.clickSignInButton();
+		loginpage.enterTextInUserNameField(username).enterPasswordInPasswordField(password).clickSignInButton();
 		assertEquals(expectedUrl,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
 	@DataProvider(name="LoginProvider")
@@ -53,34 +43,24 @@ public class LoginTest extends Base
 	        };
 
 	    }
-    @Test
+    @Test (retryAnalyzer = Retry.class)
     public void verifyingUsingValidUserNameAndInvalidPassword() throws IOException
 	{
     	String username=ExcelUtility.getString(4, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		String password=ExcelUtility.getString(5, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		String expectedTitle=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		loginpage=new LoginPage(driver);
-		assertTrue(loginpage.UserNameFieldDisplayed(),"UserName field is not Displayed");
-		loginpage.enterTextInUserNameField(username);
-		assertTrue(loginpage.PasswordFieldDisplayed(),"Password field is not Displayed");
-		loginpage.enterPasswordInPasswordField(password);
-		assertTrue(loginpage.SignInButtonEnabled(),"SignIn Button is not Enabled");
-		loginpage.clickSignInButton();
+		loginpage.enterTextInUserNameField(username).enterPasswordInPasswordField(password).clickSignInButton();
 		assertEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	public void verifyingUsingInvalidCredentials() throws IOException
 	{
 		String username=ExcelUtility.getString(4, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		String password=ExcelUtility.getString(5, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		String expectedTitle=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		loginpage=new LoginPage(driver);
-		assertTrue(loginpage.UserNameFieldDisplayed(),"UserName field is not Displayed");
-		loginpage.enterTextInUserNameField(username);
-		assertTrue(loginpage.PasswordFieldDisplayed(),"Password field is not Displayed");
-		loginpage.enterPasswordInPasswordField(password);
-		assertTrue(loginpage.SignInButtonEnabled(),"SignIn Button is not Enabled");
-		loginpage.clickSignInButton();
+		loginpage.enterTextInUserNameField(username).enterPasswordInPasswordField(password).clickSignInButton();
 		assertEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
 	

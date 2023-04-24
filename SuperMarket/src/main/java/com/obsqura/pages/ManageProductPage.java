@@ -33,26 +33,32 @@ public class ManageProductPage {
 	@FindBy(xpath="//button[@name='Search']")
 	WebElement FilterSearchButtonElement;
 	
+	@FindBy(xpath="//button[@class='btn btn-xs btn-success']")
+	WebElement ProductCodeButtonElement;
 	
 	@FindBy(xpath="//div[@class='col-sm-12']")
 	WebElement AlertMessageFieldElement;
 	
 	
-	public void clickOnDeleteButton()
+	public ManageProductPage clickOnDeleteButton()
     {
     	PageUtility.clickOnElement(DeleteButtonElement);
+    	return this;
     }
-	public void clickOnSearchButton()
+	public ManageProductPage clickOnSearchButton()
     {
     	PageUtility.clickOnElement(SearchButtonElement);
+    	return this;
     }
-	public void enterValueInTitleField(String title)
+	public ManageProductPage enterValueInTitleField(String title)
     {
     	PageUtility.enterText(TitleFieldElement, title);
+    	return this;
     }
-	public void clickOnFilterSearchButton()
+	public ManageProductPage clickOnFilterSearchButton()
     {
     	PageUtility.clickOnElement(FilterSearchButtonElement);
+    	return this;
     }
 	public boolean checkTitleIsPresent(String Title)
 	{
@@ -64,7 +70,6 @@ public class ManageProductPage {
 		}
 		return  false;
 	}
-	
 	public boolean AlertMessageFieldDisplayed()
 	{
 		return  AlertMessageFieldElement.isDisplayed();
@@ -72,6 +77,10 @@ public class ManageProductPage {
 	public boolean  greaterLocationComparisonOfEditButtonAndDeleteButton()
 	{
 		return PageUtility.greaterComparisonX(DeleteButtonElement, EditButtonElement);
+	}
+	public boolean  productCodeButtonIsDisplayed()
+	{
+		return PageUtility.isElementDisplayed(ProductCodeButtonElement);
 	}
 
 }

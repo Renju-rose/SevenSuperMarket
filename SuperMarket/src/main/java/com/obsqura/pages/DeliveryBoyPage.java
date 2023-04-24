@@ -1,5 +1,6 @@
 package com.obsqura.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,10 +33,17 @@ public class DeliveryBoyPage {
 	@FindBy(xpath="//input[@id='password']")
 	WebElement PasswordFieldElement;
 	
-	@FindBy(xpath="//button[@type='submit']")
+	@FindBy(xpath="//button[@name='create']")
 	WebElement SaveDeliveryBoyElement;
 	
-	@FindBy(xpath="//div[@class='row-sm-12']")
+	@FindBy(xpath="//i[@class='fa fa-angle-double-down']")
+	WebElement PasswordShowDetailsButtonElement;
+	
+	@FindBy(xpath="//div[@class='profile-info-name']")
+	WebElement PasswordShowDetails;
+	
+	
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 	WebElement AlertMessageFieldElement;
 	
 	@FindBy(xpath="//a[@onclick='click_button(2)']")
@@ -43,6 +51,9 @@ public class DeliveryBoyPage {
 	
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-warning']")
 	WebElement ResetButtonElement;
+	
+	@FindBy(xpath="//a[@role='button']")
+	WebElement StatusButtonElement;
 	
 	@FindBy(css="i[class='fas fa-bars']")
 	WebElement SideBarElement;
@@ -60,55 +71,89 @@ public class DeliveryBoyPage {
 	WebElement AlertForDeliveryBoyElement;
 	
 	
-	public void clickDeliveryBoyMoreInfo()
+	public DeliveryBoyPage clickDeliveryBoyMoreInfo()
     {
     	PageUtility.clickOnElement(DeliveryBoyMoreInfoElement);
+    	return this;
     }
-	public void clickOnNewButton()
+	public DeliveryBoyPage clickOnNewButton()
     {
     	PageUtility.clickOnElement(NewButtonElement);
+    	return this;
     }
-	public void clickOnSideBar()
+	public DeliveryBoyPage clickOnPasswordShowDetailsButton()
+    {
+    	PageUtility.clickOnElement(PasswordShowDetailsButtonElement);
+    	return this;
+    }
+	public boolean PasswordShowDetailsIsDisplayed()
+    {
+    	return PageUtility.isElementDisplayed(PasswordShowDetails);
+    }
+	public DeliveryBoyPage clickOnSideBar()
     {
     	PageUtility.clickOnElement(SideBarElement);
+    	return this;
     }
-	public void clickOnResetButton()
+	public DeliveryBoyPage clickOnResetButton()
     {
     	PageUtility.clickOnElement(ResetButtonElement);
+    	return this;
     }
-	public void clickOnManageDeliveryBoyButton()
+	public DeliveryBoyPage clickOnManageDeliveryBoyButton()
     {
     	PageUtility.clickOnElement(ManageDeliveryBoyButtonElement);
+    	return this;
     }
 	
-	public void enterTextInNameField(String name)
+	public DeliveryBoyPage enterTextInNameField(String name)
     {
     	PageUtility.enterText(NameFieldElement, name);
+    	return this;
     }
 	
-	public void enterTextInUserNameField(String username)
+	public DeliveryBoyPage enterTextInUserNameField(String username)
     {
     	PageUtility.enterText(UserNameFieldElement, username);
+    	return this;
     }
 	
-	public void enterTextInPasswordField(String password)
+	public String getBackGroundColorOfStatusButton()
+	{
+		return PageUtility.getCssValueOfElement(StatusButtonElement, "background-color");
+	}
+	
+	public DeliveryBoyPage clickOnStatus()
+	{
+		PageUtility.getAttributeElementOfhref(StatusButtonElement);
+		WaitUtility.waitForElementClickable(driver, StatusButtonElement);
+		getBackGroundColorOfStatusButton().equals(StatusButtonElement);
+		PageUtility.clickOnElement(StatusButtonElement);
+		return this;
+	}
+	
+	public DeliveryBoyPage enterTextInPasswordField(String password)
     {
     	PageUtility.enterText(PasswordFieldElement, password);
+    	return this;
     }
 	
-	public void clickSaveDeliveryBoyButton()
+	public DeliveryBoyPage clickSaveDeliveryBoyButton()
     {
-		WaitUtility.waitForElementClickable(driver, SaveDeliveryBoyElement);
-    	PageUtility.clickOnElement(SaveDeliveryBoyElement);
-    	WaitUtility.waitForElementClickable(driver, SaveDeliveryBoyElement);
+		//WaitUtility.waitForElementClickable(driver, SaveDeliveryBoyElement);
+		JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+		jse2.executeScript("arguments[0].scrollIntoView()", SaveDeliveryBoyElement); 
+		PageUtility.clickOnElement(SaveDeliveryBoyElement);
+		return this;
     }
 	public String fontWeightOfSearchButton()
 	{
 		return PageUtility.getCssValueOfElement(SearchButtonElement,"font-weight");
 	}
-	public void clickOnDeleteButton()
+	public DeliveryBoyPage clickOnDeleteButton()
     {
     	PageUtility.clickOnElement(DeleteButtonElement);
+    	return this;
     }
 	public String getUrlofSavedDeliveryBoy()
 	{

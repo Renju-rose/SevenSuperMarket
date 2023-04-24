@@ -1,6 +1,7 @@
 package com.obsqura.testscripts;
 
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertFalse;
 import java.io.IOException;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,7 @@ public class ManageSilderTest extends Base{
 	ManageSliderPage manageSliderPage;
 	Login login;
 
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	public void verifyAddingSliderFunctionality() throws IOException 
 	{
 		String link=ExcelUtility.getString(0, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"ManageSlider");
@@ -24,12 +25,10 @@ public class ManageSilderTest extends Base{
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
 		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(5, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
 		manageSliderPage=new ManageSliderPage(driver);
-		manageSliderPage.clickOnNewButton();
-		manageSliderPage.enterTextInLinkField(link);
-		manageSliderPage.clickOnSaveButton();
-	    assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Failed to add Slider in Manage Slider");
+		manageSliderPage.clickOnNewButton().enterTextInLinkField(link).clickOnSaveButton();
+		assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Failed to add Slider in Manage Slider");
 	}
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	public void verifyEditButtonFunctionalityInManageSlider() throws IOException
 	{
 		String link=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"ManageSlider");
@@ -38,12 +37,10 @@ public class ManageSilderTest extends Base{
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
 		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(5, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
 		manageSliderPage=new ManageSliderPage(driver);
-		manageSliderPage.clickOnEditButton();
-		manageSliderPage.enterTextInLinkField(link);
-		manageSliderPage.clickOnUpdateButton();
-	    assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Failed to update Slider in Manage Slider");
+		manageSliderPage.clickOnEditButton().enterTextInLinkField(link).clickOnUpdateButton();
+		assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Failed to update Slider in Manage Slider");
 	}
-	@Test
+	@Test (retryAnalyzer = Retry.class)
 	 public void verifyDeleteButtonFunctionalityUsingAlert() throws IOException
 	 {
 		login=new Login(driver);
@@ -54,7 +51,7 @@ public class ManageSilderTest extends Base{
 		manageSliderPage.clickOnDeleteButton();
 		driver.switchTo().alert().accept();
 		assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Slider is not getting deleted");
-	    }
+	  }
 
 
 }

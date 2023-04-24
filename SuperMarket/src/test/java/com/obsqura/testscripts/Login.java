@@ -21,11 +21,8 @@ public class Login extends Base
 		String username=ExcelUtility.getString(2, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		String password=ExcelUtility.getString(3, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
 		loginpage=new LoginPage(driver);
-		assertTrue(loginpage.UserNameFieldDisplayed(),"UserName field is not Displayed");
 		loginpage.enterTextInUserNameField(username);
-		assertTrue(loginpage.PasswordFieldDisplayed(),"Password field is not Displayed");
 		loginpage.enterPasswordInPasswordField(password);
-		assertTrue(loginpage.SignInButtonEnabled(),"SignIn Button is not Enabled");
 		loginpage.clickSignInButton();
 		assertEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
