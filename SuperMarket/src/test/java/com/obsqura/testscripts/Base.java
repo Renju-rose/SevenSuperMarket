@@ -69,16 +69,16 @@ public class Base {
 				driver=WebDriverManager.firefoxdriver().create();
 			}
 			else if(browser.equalsIgnoreCase("chrome")){
-				ChromeOptions chromeoptions = new ChromeOptions();
-				chromeoptions.addArguments("--remote-allow-origins=*");
-				WebDriverManager.chromedriver().create();
-				driver = new ChromeDriver(chromeoptions);
+				ChromeOptions chromeOptions = new ChromeOptions();
+				chromeOptions.addArguments("--remote-allow-origins=*");
+				WebDriverManager.chromedriver().capabilities(chromeOptions).create();
+				driver = new ChromeDriver(chromeOptions);
 			}
 			else if(browser.equalsIgnoreCase("Edge")){
 			
 				EdgeOptions edgeOptions = new EdgeOptions();
 				edgeOptions.addArguments("--remote-allow-origins=*");
-				WebDriverManager.edgedriver().create();
+				WebDriverManager.chromedriver().capabilities(edgeOptions).create();
 				driver = new EdgeDriver(edgeOptions);
 			}
 			else{

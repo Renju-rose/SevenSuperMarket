@@ -11,6 +11,7 @@ import com.obsqura.pages.PushNotificationPage;
 import com.obsqura.pages.SelectCategoryList;
 
 import Utilities.ExcelUtility;
+import Utilities.GeneralUtilities;
 
 public class PushNotificationTest extends Base
 {
@@ -19,11 +20,11 @@ public class PushNotificationTest extends Base
 	@Test (groups = { "smoke", "regression" })
 	public void verifyPushNotificationNavigation() throws IOException 
 	{
-		String expectedUrl=ExcelUtility.getString(2, 1, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"PushNotification");
+		String expectedUrl=ExcelUtility.getString(2, 1, GeneralUtilities.excelpath,"PushNotification");
 		login=new Login(driver);
 		login.logintoDashboard();
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
-		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
+		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"Menu"));
 		pushNotificationPage=new PushNotificationPage(driver);
 		pushNotificationPage.clickOnSendButton();
 		assertEquals(expectedUrl,pushNotificationPage.getUrlOfPushNotification(),"Url's are not same");
@@ -31,12 +32,12 @@ public class PushNotificationTest extends Base
 	@Test (groups = { "smoke" })
 	public void verifyEnterValueInPushNotification() throws IOException 
 	{
-		String title=ExcelUtility.getString(0, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"PushNotification");
-		String description=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"PushNotification");
+		String title=ExcelUtility.getString(0, 0, GeneralUtilities.excelpath,"PushNotification");
+		String description=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"PushNotification");
 		login=new Login(driver);
 		login.logintoDashboard();
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
-		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
+		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"Menu"));
 		pushNotificationPage=new PushNotificationPage(driver);
 		pushNotificationPage.clickPushNotification().enterValueInTitleField(title).enterValueInDescriptionField(description).clickOnSendButton();
 		assertTrue(pushNotificationPage.AlertMessageFieldDisplayed(),"Push Notification Message is not send successfully");
@@ -47,7 +48,7 @@ public class PushNotificationTest extends Base
 		login=new Login(driver);
 		login.logintoDashboard();
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
-		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"Menu"));
+		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"Menu"));
 		pushNotificationPage=new PushNotificationPage(driver);
 		assertTrue(pushNotificationPage.greaterLocationComparisonOfDescriptionFieldAndTitleField(),"Description Field is not aligned above Title Field");
 	}

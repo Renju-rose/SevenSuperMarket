@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,6 +102,11 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.obsqura.testscripts.ManageProductTest" class="method navigator-link" hash-for-method="verifyDeleteFuncionalityOfManageProduct">verifyDeleteFuncionalityOfManageProduct</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.obsqura.testscripts.ManageProductTest" class="method navigator-link" hash-for-method="verifySearchFunctionalityOfManageProduct">verifySearchFunctionalityOfManageProduct</a> <!-- method navigator-link -->
@@ -127,6 +132,13 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="verifyDeleteFuncionalityOfManageProduct">
+                  </a> <!-- verifyDeleteFuncionalityOfManageProduct -->
+                  <span class="method-name">verifyDeleteFuncionalityOfManageProduct</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="verifySearchFunctionalityOfManageProduct">
                   </a> <!-- verifySearchFunctionalityOfManageProduct -->
                   <span class="method-name">verifySearchFunctionalityOfManageProduct</span>
@@ -147,16 +159,12 @@
   &lt;parameter name=&quot;password&quot; value=&quot;admin&quot;/&gt;
   &lt;parameter name=&quot;username&quot; value=&quot;admin&quot;/&gt;
   &lt;listeners&gt;
-    &lt;listener class-name=&quot;com.obsqura.testscripts.Listeners&quot;/&gt;
+    &lt;listener class-name=&quot;generaltests.Listeners&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;1&quot; name=&quot;testng&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.obsqura.testscripts.ManageProductTest&quot;&gt;
-        &lt;methods&gt;
-          &lt;include name=&quot;verifySearchFunctionalityOfManageProduct&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- com.obsqura.testscripts.ManageProductTest --&gt;
+      &lt;class name=&quot;com.obsqura.testscripts.ManageProductTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- testng --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -196,16 +204,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifySearchFunctionalityOfManageProduct')
+data.setCell(0, 1, 'verifyDeleteFuncionalityOfManageProduct')
 data.setCell(0, 2, 'com.obsqura.testscripts.ManageProductTest')
-data.setCell(0, 3, 3108);
+data.setCell(0, 3, 3018);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verifySearchFunctionalityOfManageProduct')
+data.setCell(1, 2, 'com.obsqura.testscripts.ManageProductTest')
+data.setCell(1, 3, 2293);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 5 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -220,18 +232,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">2 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.obsqura.testscripts.ManageProductTest</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verifyIfDeleteButtonisAlignedAfterEditButton</span>
-                <br/>
-                <span class="ignored-method-name">verifyDeleteFuncionalityOfManageProduct</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Suite" class="panel">
@@ -246,12 +249,24 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
+                <span class="method-name">verifyDeleteFuncionalityOfManageProduct</span>
+                <span class="method-start">2822 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">browserQuit([TestResult name=verifyDeleteFuncionalityOfManageProduct status=SUCCESS method=ManageProductTest.ver...)</span>
+                <span class="method-start">5846 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initialiseBrowser(chrome)</span>
+                <span class="method-start">6041 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
                 <span class="method-name">verifySearchFunctionalityOfManageProduct</span>
-                <span class="method-start">3358 ms</span>
+                <span class="method-start">7624 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">browserQuit([TestResult name=verifySearchFunctionalityOfManageProduct status=SUCCESS method=ManageProductTest.ve...)</span>
-                <span class="method-start">6472 ms</span>
+                <span class="method-start">9918 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

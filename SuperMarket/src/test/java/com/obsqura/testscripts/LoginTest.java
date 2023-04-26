@@ -10,15 +10,16 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.obsqura.pages.LoginPage;
 import Utilities.ExcelUtility;
+import Utilities.GeneralUtilities;
 
 public class LoginTest extends Base
 {
 	LoginPage loginpage;
-	@Test (retryAnalyzer = Retry.class)
+	@Test (retryAnalyzer = generaltests.Retry.class)
 	@Parameters({"username","password"})
 	public void verifyingUsingValidCredentials(String username,String password) throws IOException
 	{
-		String expectedTitle=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
+		String expectedTitle=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"loginpage");
 		loginpage=new LoginPage(driver);
 		loginpage.enterTextInUserNameField(username).enterPasswordInPasswordField(password).clickSignInButton();
 		assertEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
@@ -26,10 +27,10 @@ public class LoginTest extends Base
 	@Test(dataProvider="LoginProvider")
 	public void verifyLoginPage(String username,String password) throws IOException
 	{
-		String expectedUrl=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
+		String expectedUrl=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"loginpage");
 		loginpage=new LoginPage(driver);
 		loginpage.enterTextInUserNameField(username).enterPasswordInPasswordField(password).clickSignInButton();
-		assertEquals(expectedUrl,loginpage.getTitleofLogin(),"Invalid Username & Password");
+		assertNotEquals(expectedUrl,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
 	@DataProvider(name="LoginProvider")
 	public Object[][] getDataFromDataprovider()
@@ -43,25 +44,25 @@ public class LoginTest extends Base
 	        };
 
 	    }
-    @Test (retryAnalyzer = Retry.class)
+    @Test (retryAnalyzer = generaltests.Retry.class)
     public void verifyingUsingValidUserNameAndInvalidPassword() throws IOException
 	{
-    	String username=ExcelUtility.getString(4, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
-		String password=ExcelUtility.getString(5, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
-		String expectedTitle=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
+    	String username=ExcelUtility.getString(4, 0, GeneralUtilities.excelpath,"loginpage");
+		String password=ExcelUtility.getString(5, 0, GeneralUtilities.excelpath,"loginpage");
+		String expectedTitle=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"loginpage");
 		loginpage=new LoginPage(driver);
 		loginpage.enterTextInUserNameField(username).enterPasswordInPasswordField(password).clickSignInButton();
-		assertEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
+		assertNotEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
-	@Test (retryAnalyzer = Retry.class)
+	@Test (retryAnalyzer = generaltests.Retry.class)
 	public void verifyingUsingInvalidCredentials() throws IOException
 	{
-		String username=ExcelUtility.getString(4, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
-		String password=ExcelUtility.getString(5, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
-		String expectedTitle=ExcelUtility.getString(1, 0, System.getProperty("user.dir") + constants.Constants.EXCELFILE,"loginpage");
+		String username=ExcelUtility.getString(4, 0, GeneralUtilities.excelpath,"loginpage");
+		String password=ExcelUtility.getString(5, 0, GeneralUtilities.excelpath,"loginpage");
+		String expectedTitle=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"loginpage");
 		loginpage=new LoginPage(driver);
 		loginpage.enterTextInUserNameField(username).enterPasswordInPasswordField(password).clickSignInButton();
-		assertEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
+		assertNotEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
 	
 }
