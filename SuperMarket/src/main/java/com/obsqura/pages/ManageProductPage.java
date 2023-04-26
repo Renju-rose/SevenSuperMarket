@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import Utilities.PageUtility;
+import Utilities.WaitUtility;
 
 public class ManageProductPage {
 	WebDriver driver;
@@ -32,6 +33,9 @@ public class ManageProductPage {
 	
 	@FindBy(xpath="//button[@name='Search']")
 	WebElement FilterSearchButtonElement;
+	
+	@FindBy(xpath="//a[@role='button']")
+	WebElement StatusButtonElement;
 	
 	@FindBy(xpath="//button[@class='btn btn-xs btn-success']")
 	WebElement ProductCodeButtonElement;
@@ -69,6 +73,19 @@ public class ManageProductPage {
 	     		return  true;
 		}
 		return  false;
+	}
+	public String getBackGroundColorOfStatusButton()
+	{
+		return PageUtility.getCssValueOfElement(StatusButtonElement, "background-color");
+	}
+	
+	public ManageProductPage clickOnStatus()
+	{
+		PageUtility.getAttributeElementOfhref(StatusButtonElement);
+		WaitUtility.waitForElementClickable(driver, StatusButtonElement);
+		getBackGroundColorOfStatusButton().equals(StatusButtonElement);
+		PageUtility.clickOnElement(StatusButtonElement);
+		return this;
 	}
 	public boolean AlertMessageFieldDisplayed()
 	{

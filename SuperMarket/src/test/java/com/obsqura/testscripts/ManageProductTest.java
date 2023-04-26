@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import com.obsqura.pages.ManageLocationPage;
 import com.obsqura.pages.ManageProductPage;
+import com.obsqura.pages.ManageSliderPage;
 import com.obsqura.pages.ManageUserPage;
 import com.obsqura.pages.SelectCategoryList;
 import Utilities.ExcelUtility;
@@ -40,6 +41,18 @@ public class ManageProductTest extends Base{
 		driver.switchTo().alert().accept();
 		assertTrue(manageProductPage.AlertMessageFieldDisplayed(),"Product List not deleted");
 	}
+	@Test (retryAnalyzer = generaltests.Retry.class)
+	public void verifyStatusChangeActiveAndInActiveInManageSlider() throws IOException
+	{
+		 login=new Login(driver);
+		 login.logintoDashboard();
+		 SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
+		 SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(2, 0, GeneralUtilities.excelpath,"Menu"));
+		 manageProductPage=new ManageProductPage(driver);
+		 manageProductPage.clickOnStatus();
+		 assertTrue(manageProductPage.AlertMessageFieldDisplayed(),"Status is not changing properly");
+	 }
+
 	
 	
 
