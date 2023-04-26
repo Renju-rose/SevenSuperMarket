@@ -30,6 +30,18 @@ public class ManageSilderTest extends Base{
 		assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Failed to add Slider in Manage Slider");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
+	public void verifyImageUploadingInManageSlider() throws IOException
+	{
+		String link=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"ManageSlider");
+		login=new Login(driver);
+		login.logintoDashboard();
+		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
+		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(5, 0, GeneralUtilities.excelpath,"Menu"));
+		manageSliderPage=new ManageSliderPage(driver);
+		manageSliderPage.clickOnNewButton().uploadImage().enterTextInLinkField(link).clickOnSaveButton();
+		assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Failed to upload Image in Manage Slider");
+	}
+	@Test (retryAnalyzer = generaltests.Retry.class)
 	public void verifyEditButtonFunctionalityInManageSlider() throws IOException
 	{
 		String link=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"ManageSlider");
@@ -53,6 +65,17 @@ public class ManageSilderTest extends Base{
 		driver.switchTo().alert().accept();
 		assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Slider is not getting deleted");
 	  }
+	@Test (retryAnalyzer = generaltests.Retry.class)
+	public void verifyStatusChangeActiveAndInActiveInManageSlider() throws IOException
+	{
+		 login=new Login(driver);
+		 login.logintoDashboard();
+		 SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
+		 SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(5, 0, GeneralUtilities.excelpath,"Menu"));
+		 manageSliderPage=new ManageSliderPage(driver);
+		 manageSliderPage.clickOnStatus();
+		 assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Status is not changing properly");
+	 }
 
 
 }

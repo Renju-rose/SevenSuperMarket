@@ -42,6 +42,8 @@ public class DeliveryBoyPage {
 	@FindBy(xpath="//div[@class='profile-info-name']")
 	WebElement PasswordShowDetails;
 	
+	@FindBy(xpath="//a[@class='btn btn-sm btn btn-primary btncss']")
+	WebElement EditButtonElement;
 	
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
 	WebElement AlertMessageFieldElement;
@@ -64,8 +66,16 @@ public class DeliveryBoyPage {
 	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[7]/div/a")
 	WebElement PasswordAreaElement;
 	
+	@FindBy(xpath="//button[@class='btn btn-danger']")
+	WebElement UpdateButtonElement;
+	
+	
 	@FindBy(xpath="//body[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/div[2]/table[1]/tbody[1]/tr[1]/td[8]/a[2]/i[1]")
 	WebElement DeleteButtonElement;
+	
+	@FindBy(xpath="//input[@id='phone']")
+	WebElement PhoneNumberFieldElement;
+	
 	
 	@FindBy(xpath="//div[@class='card']//div[@class='card-header']")
 	WebElement AlertForDeliveryBoyElement;
@@ -76,6 +86,16 @@ public class DeliveryBoyPage {
     	PageUtility.clickOnElement(DeliveryBoyMoreInfoElement);
     	return this;
     }
+	public DeliveryBoyPage clickOnEditButton()
+    {
+    	PageUtility.clickOnElement(EditButtonElement);
+    	return this;
+    }
+	public DeliveryBoyPage clickOnUpdateButton()
+    {
+    	PageUtility.submitOnElement(UpdateButtonElement);
+    	return this;
+    }
 	public DeliveryBoyPage clickOnNewButton()
     {
     	PageUtility.clickOnElement(NewButtonElement);
@@ -84,6 +104,11 @@ public class DeliveryBoyPage {
 	public DeliveryBoyPage clickOnPasswordShowDetailsButton()
     {
     	PageUtility.clickOnElement(PasswordShowDetailsButtonElement);
+    	return this;
+    }
+	public DeliveryBoyPage clickOnSaveDeliveryBoy()
+    {
+    	PageUtility.submitOnElement(SaveDeliveryBoyElement);
     	return this;
     }
 	public boolean PasswordShowDetailsIsDisplayed()
@@ -109,6 +134,11 @@ public class DeliveryBoyPage {
 	public DeliveryBoyPage enterTextInNameField(String name)
     {
     	PageUtility.enterText(NameFieldElement, name);
+    	return this;
+    }
+	public DeliveryBoyPage enterNumberInPhoneNumber(String number)
+    {
+    	PageUtility.enterText(PhoneNumberFieldElement, number);
     	return this;
     }
 	

@@ -11,15 +11,14 @@
 <parameter name="browser" value="chrome"></parameter>
 <classes>
    <class name="com.obsqura.testscripts.LoginTest"/>
+   <class name="com.obsqura.testscripts.AdminUsersTest"/>
    <class name="com.obsqura.testscripts.DeliveryBoyTest"/>
    <class name="com.obsqura.testscripts.ManageProductTest"/>
    <class name="com.obsqura.testscripts.ManageSilderTest"/>
    <class name="com.obsqura.testscripts.ManageUserTest"/>
    <class name="com.obsqura.testscripts.PushNotificationTest"/>
-   <class name="com.obsqura.testscripts.ManageProductTest"/>
    <class name="com.obsqura.testscripts.ManageLocationTest"/>
    <class name="com.obsqura.testscripts.ManagePaymentMethodTest"/>
-   <class name="com.obsqura.testscripts.AdminUsersTest"/>
 </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

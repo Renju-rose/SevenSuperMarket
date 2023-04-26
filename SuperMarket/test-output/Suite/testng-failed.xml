@@ -4,20 +4,18 @@
   <parameter name="password" value="admin"/>
   <parameter name="username" value="admin"/>
   <listeners>
-    <listener class-name="com.obsqura.testscripts.Listeners"/>
+    <listener class-name="generaltests.Listeners"/>
   </listeners>
   <test thread-count="5" name="testng(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.obsqura.testscripts.LoginTest">
+      <class name="com.obsqura.testscripts.DeliveryBoyTest">
         <methods>
           <include name="initialiseBrowser"/>
-          <include name="verifyLoginPage" invocation-numbers="0 1 2"/>
-          <include name="verifyingUsingInvalidCredentials"/>
-          <include name="verifyingUsingValidUserNameAndInvalidPassword"/>
+          <include name="verifyEditFunctionalityOfDeliveryBoy"/>
           <include name="browserQuit"/>
         </methods>
-      </class> <!-- com.obsqura.testscripts.LoginTest -->
+      </class> <!-- com.obsqura.testscripts.DeliveryBoyTest -->
     </classes>
   </test> <!-- testng(failed) -->
 </suite> <!-- Failed suite [Suite] -->

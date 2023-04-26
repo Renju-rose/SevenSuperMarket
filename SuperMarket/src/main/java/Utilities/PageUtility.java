@@ -17,6 +17,10 @@ public class PageUtility
 	   {
 		   element.click();
 	   }
+	   public static void submitOnElement(WebElement element) 
+	   {
+		   element.submit();
+	   }
 	   public boolean isDisplay(WebElement element) 
 	   {
 			boolean status = element.isDisplayed();
