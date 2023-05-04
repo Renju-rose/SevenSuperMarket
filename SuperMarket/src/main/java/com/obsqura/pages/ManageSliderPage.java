@@ -49,6 +49,7 @@ public class ManageSliderPage {
 	
 	public ManageSliderPage clickOnNewButton()
     {
+		WaitUtility.waitForElementClickable(driver, NewButtonElement);
     	PageUtility.clickOnElement(NewButtonElement);
     	return this;
     }
@@ -59,6 +60,7 @@ public class ManageSliderPage {
     }
 	public ManageSliderPage clickOnSaveButton()
     {
+		WaitUtility.waitForElementClickable(driver, SaveButtonElement);
     	PageUtility.clickOnElement(SaveButtonElement);
     	return this;
     }
@@ -68,6 +70,7 @@ public class ManageSliderPage {
 	}
 	public ManageSliderPage clickOnEditButton()
     {
+		WaitUtility.waitForElementClickable(driver, EditButtonElement);
     	PageUtility.clickOnElement(EditButtonElement);
     	return this;
     }
@@ -91,6 +94,7 @@ public class ManageSliderPage {
 	}
 	public ManageSliderPage clickOnUpdateButton()
     {
+		WaitUtility.waitForElementClickable(driver, UpdateButtonElement);
     	PageUtility.clickOnElement(UpdateButtonElement);
     	return this;
     }

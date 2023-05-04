@@ -18,7 +18,7 @@ public class ManageUserTest extends Base{
 	ManageUserPage manageUserPage ;
 	Login login;
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyPasswordShowDetailsFunctionality() throws IOException 
+	public void verifyPasswordShowDetailsFunctionality() 
 	{
 		login=new Login(driver);
 		login.logintoDashboard();
@@ -29,7 +29,7 @@ public class ManageUserTest extends Base{
 		assertTrue(manageUserPage.PasswordShowDetailsIsDisplayed(),"Password Details are not displaying in Manage User Page");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyStatusChangeActiveAndInActive() throws IOException
+	public void verifyStatusChangeActiveAndInActive() 
 	{
 		 login=new Login(driver);
 		 login.logintoDashboard();
@@ -40,7 +40,7 @@ public class ManageUserTest extends Base{
 		 assertTrue(manageUserPage.AlertMessageFieldDisplayed(),"Status is not changing properly in Manage User Page");
     }
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyColorofSearchButton() throws IOException
+	public void verifyColorofSearchButton() 
 	{
 		String expectedColorOfSearchButton=ExcelUtility.getString(1, 1, GeneralUtilities.excelpath,"ManageUser");
 		login=new Login(driver);

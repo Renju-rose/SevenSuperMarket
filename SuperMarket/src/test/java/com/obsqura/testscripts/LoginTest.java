@@ -17,7 +17,7 @@ public class LoginTest extends Base
 	LoginPage loginpage;
 	@Test (retryAnalyzer = generaltests.Retry.class)
 	@Parameters({"username","password"})
-	public void verifyingUsingValidCredentials(String username,String password) throws IOException
+	public void verifyingUsingValidCredentials(String username,String password) 
 	{
 		String expectedTitle=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"loginpage");
 		loginpage=new LoginPage(driver);
@@ -45,7 +45,7 @@ public class LoginTest extends Base
 
 	    }
     @Test (retryAnalyzer = generaltests.Retry.class)
-    public void verifyingUsingValidUserNameAndInvalidPassword() throws IOException
+    public void verifyingUsingValidUserNameAndInvalidPassword() 
 	{
     	String username=ExcelUtility.getString(4, 0, GeneralUtilities.excelpath,"loginpage");
 		String password=ExcelUtility.getString(5, 0, GeneralUtilities.excelpath,"loginpage");
@@ -55,7 +55,7 @@ public class LoginTest extends Base
 		assertNotEquals(expectedTitle,loginpage.getTitleofLogin(),"Invalid Username & Password");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyingUsingInvalidCredentials() throws IOException
+	public void verifyingUsingInvalidCredentials() 
 	{
 		String username=ExcelUtility.getString(4, 0, GeneralUtilities.excelpath,"loginpage");
 		String password=ExcelUtility.getString(5, 0, GeneralUtilities.excelpath,"loginpage");

@@ -7,7 +7,7 @@
  <test  name="ChromeBrowsing">
 <parameter name="browser" value="chrome"></parameter>
     <classes>
-       <class name="com.obsqura.testscripts.ManagePaymentMethodTest">
+       <class name="com.obsqura.testscripts.PushNotificationTest">
        </class>
         </classes>
  </test> <!-- Test -->
@@ -15,18 +15,10 @@
 <test  name="EdgeBrowsing">
 <parameter name="browser" value="Edge"></parameter>
     <classes>
-       <class name="com.obsqura.testscripts.ManagePaymentMethodTest">
+       <class name="com.obsqura.testscripts.PushNotificationTest">
        </class>
        
     </classes>
-  </test> <!-- Test -->
-
-<test  name="FirefoxBrowsing">
-<parameter name="browser" value="firefox"></parameter>
-    <classes>
-       <class name="com.obsqura.testscripts.ManagePaymentMethodTest">
-       </class>
-       
-    </classes>
+ 
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -7,22 +7,15 @@
   <test thread-count="5" name="ChromeTest">
    <parameter name="browser" value="chrome"></parameter>
     <classes>
-       <class name="com.obsqura.testscripts.ManagePaymentMethodTest">
+       <class name="com.obsqura.testscripts.PushNotificationTest">
        </class>
     </classes>
   </test> <!-- Test -->
 <test thread-count="5" name="EdgeTest">
    <parameter name="browser" value="Edge"></parameter>
     <classes>
-       <class name="com.obsqura.testscripts.ManagePaymentMethodTest">
+       <class name="com.obsqura.testscripts.PushNotificationTest">
        </class>
     </classes>
-  </test> <!-- Test -->
-<test thread-count="5" name="FirefoxTest">
-  <parameter name="browser" value="firefox"></parameter>
-    <classes>
-       <class name="com.obsqura.testscripts.ManagePaymentMethodTest">
-       </class>
-    </classes>
-  </test> <!-- Test -->
+ </test> <!-- Test -->
 </suite> <!-- Suite -->

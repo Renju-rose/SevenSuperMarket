@@ -8,25 +8,25 @@ import com.obsqura.pages.DeliveryBoyPage;
 import com.obsqura.pages.ManageLocationPage;
 import com.obsqura.pages.SelectCategoryList;
 import Utilities.ExcelUtility;
-import Utilities.FakerUtility;
+import Utilities.RandomDataUtility;
 import Utilities.GeneralUtilities;
 
 public class AdminUsersTest extends Base{
 	AdminUsersPage adminUsersPage;
 	Login login;
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifySaveFunctionalityOfAdminUsers() throws IOException
+	public void verifySaveFunctionalityOfAdminUsers() 
 	{
 		login=new Login(driver);
 		login.logintoDashboard();
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
 		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(7, 0, GeneralUtilities.excelpath,"Menu"));
 		adminUsersPage=new AdminUsersPage(driver);
-		adminUsersPage.clickOnNewButton().enterValueInUserNameField(FakerUtility.firstNameFakerSample()).enterValueInPasswordField(FakerUtility.lastNameFakerSample()).clickOnUserTypeButton().clickOnSaveButton();
+		adminUsersPage.clickOnNewButton().enterValueInUserNameField(RandomDataUtility.firstNameFakerSample()).enterValueInPasswordField(RandomDataUtility.lastNameFakerSample()).clickOnUserTypeButton().clickOnSaveButton();
 	    assertTrue(adminUsersPage.AlertMessageFieldDisplayed(),"New User is not get added");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyEditFunctionalityOfAdminUsers() throws IOException
+	public void verifyEditFunctionalityOfAdminUsers() 
 	{
 		String username=ExcelUtility.getString(2, 1, GeneralUtilities.excelpath,"AdminUsers");
 		login=new Login(driver);
@@ -34,11 +34,11 @@ public class AdminUsersTest extends Base{
 		SelectCategoryList SelectCategoryListobj=new SelectCategoryList(driver);
 		SelectCategoryListobj.navigateToMenu(ExcelUtility.getString(7, 0, GeneralUtilities.excelpath,"Menu"));
 		adminUsersPage=new AdminUsersPage(driver);
-		adminUsersPage.clickOnEditButton().enterValueInUserNameField(FakerUtility.firstNameFakerSample()).clickOnUpdateButton();
+		adminUsersPage.clickOnEditButton().enterValueInUserNameField(RandomDataUtility.firstNameFakerSample()).clickOnUpdateButton();
 	    assertTrue(adminUsersPage.AlertMessageFieldDisplayed(),"UserName field is not get updated");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyDeleteButtonFunctionalityInAdminUsers() throws IOException
+	public void verifyDeleteButtonFunctionalityInAdminUsers() 
 	{
 		login=new Login(driver);
 		login.logintoDashboard();

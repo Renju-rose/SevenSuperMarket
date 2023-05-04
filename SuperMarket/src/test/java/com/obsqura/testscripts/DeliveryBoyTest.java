@@ -9,7 +9,7 @@ import com.obsqura.pages.ManageUserPage;
 import com.obsqura.pages.SelectCategoryList;
 
 import Utilities.ExcelUtility;
-import Utilities.FakerUtility;
+import Utilities.RandomDataUtility;
 import Utilities.GeneralUtilities;
 import Utilities.WaitUtility;
 
@@ -17,27 +17,27 @@ public class DeliveryBoyTest extends Base{
 	DeliveryBoyPage deliveryBoyPage;
 	Login login;
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyDeliveryBoySaveFunctionality() throws IOException
+	public void verifyDeliveryBoySaveFunctionality() 
 	{
 		login=new Login(driver);
 		login.logintoDashboard();
 		deliveryBoyPage=new DeliveryBoyPage(driver);
-		deliveryBoyPage.clickDeliveryBoyMoreInfo().clickOnNewButton().enterTextInNameField(FakerUtility.firstNameFakerSample()).enterTextInUserNameField(FakerUtility.emailFakerSample()).enterTextInPasswordField(FakerUtility.lastNameFakerSample());
+		deliveryBoyPage.clickDeliveryBoyMoreInfo().clickOnNewButton().enterTextInNameField(RandomDataUtility.firstNameFakerSample()).enterTextInUserNameField(RandomDataUtility.emailFakerSample()).enterTextInPasswordField(RandomDataUtility.lastNameFakerSample());
 		deliveryBoyPage.clickOnSaveDeliveryBoy();
 		assertTrue(deliveryBoyPage.AlertMessageFieldDisplayed(),"New Delivery Boy Details is not get added");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyEditFunctionalityOfDeliveryBoy() throws IOException
+	public void verifyEditFunctionalityOfDeliveryBoy() 
 	{
 		login=new Login(driver);
 		login.logintoDashboard();
 		deliveryBoyPage=new DeliveryBoyPage(driver);
-		deliveryBoyPage.clickDeliveryBoyMoreInfo().clickOnEditButton().enterTextInNameField(FakerUtility.firstNameFakerSample()).enterNumberInPhoneNumber(FakerUtility.cellPhoneFakerSample()).enterTextInUserNameField(FakerUtility.emailFakerSample()).enterTextInPasswordField(FakerUtility.lastNameFakerSample());
+		deliveryBoyPage.clickDeliveryBoyMoreInfo().clickOnEditButton().enterTextInNameField(RandomDataUtility.firstNameFakerSample()).enterNumberInPhoneNumber(RandomDataUtility.cellPhoneFakerSample()).enterTextInUserNameField(RandomDataUtility.emailFakerSample()).enterTextInPasswordField(RandomDataUtility.lastNameFakerSample());
 		deliveryBoyPage.clickOnUpdateButton();
 		assertTrue(deliveryBoyPage.AlertMessageFieldDisplayed(),"Delivery Boy Details are not getting updated");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyStatusChangeActiveAndInActive() throws IOException
+	public void verifyStatusChangeActiveAndInActive() 
 	{
 		 login=new Login(driver);
 		 login.logintoDashboard();
@@ -46,7 +46,7 @@ public class DeliveryBoyTest extends Base{
 		 assertTrue(deliveryBoyPage.AlertMessageFieldDisplayed(),"Status is not changing properly");
 	 }
 	 @Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyPasswordShowDetailsFunctionality() throws IOException 
+	public void verifyPasswordShowDetailsFunctionality() 
 	{
 		  login=new Login(driver);
 		  login.logintoDashboard();
@@ -57,7 +57,7 @@ public class DeliveryBoyTest extends Base{
 		  assertTrue(deliveryBoyPage.PasswordShowDetailsIsDisplayed(),"Password Details are not displaying");
 	  }
 	 @Test (retryAnalyzer = generaltests.Retry.class)
-	 public void verifyDeleteButtonFunctionalityUsingAlert() throws IOException
+	 public void verifyDeleteButtonFunctionalityUsingAlert() 
 	 {
 	    	login=new Login(driver);
 			login.logintoDashboard();
@@ -67,7 +67,7 @@ public class DeliveryBoyTest extends Base{
 			assertTrue(deliveryBoyPage.AlertFieldDisplayed(),"Alert Message is not displayed");
 	  }
     @Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyFontWeightofSearchButton() throws IOException
+	public void verifyFontWeightofSearchButton() 
 	{
 		String expectedColorOfSearchButton=ExcelUtility.getNumeric(0, 1, GeneralUtilities.excelpath,"DeliveryBoy");
 		login=new Login(driver);

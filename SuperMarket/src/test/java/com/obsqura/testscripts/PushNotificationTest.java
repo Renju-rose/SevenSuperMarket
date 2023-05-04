@@ -18,7 +18,7 @@ public class PushNotificationTest extends Base
 	PushNotificationPage pushNotificationPage;
 	Login login;
 	@Test (groups = { "smoke", "regression" })
-	public void verifyPushNotificationNavigation() throws IOException 
+	public void verifyPushNotificationNavigation() 
 	{
 		String expectedUrl=ExcelUtility.getString(2, 1, GeneralUtilities.excelpath,"PushNotification");
 		login=new Login(driver);
@@ -30,7 +30,7 @@ public class PushNotificationTest extends Base
 		assertEquals(expectedUrl,pushNotificationPage.getUrlOfPushNotification(),"Url's are not same");
 	}
 	@Test (groups = { "smoke" })
-	public void verifyEnterValueInPushNotification() throws IOException 
+	public void verifyEnterValueInPushNotification() 
 	{
 		String title=ExcelUtility.getString(0, 0, GeneralUtilities.excelpath,"PushNotification");
 		String description=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"PushNotification");
@@ -43,7 +43,7 @@ public class PushNotificationTest extends Base
 		assertTrue(pushNotificationPage.AlertMessageFieldDisplayed(),"Push Notification Message is not send successfully");
 	}
 	@Test  (groups = { "regression" })
-	public void verifyIfDescriptionisAlignedBelowTitle() throws IOException 
+	public void verifyIfDescriptionisAlignedBelowTitle() 
 	{
 		login=new Login(driver);
 		login.logintoDashboard();

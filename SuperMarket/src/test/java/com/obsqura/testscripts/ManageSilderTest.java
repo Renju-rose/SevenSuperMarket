@@ -18,7 +18,7 @@ public class ManageSilderTest extends Base{
 	Login login;
 
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyAddingSliderFunctionality() throws IOException 
+	public void verifyAddingSliderFunctionality() 
 	{
 		String link=ExcelUtility.getString(0, 0, GeneralUtilities.excelpath,"ManageSlider");
 		login=new Login(driver);
@@ -30,7 +30,7 @@ public class ManageSilderTest extends Base{
 		assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Failed to add Slider in Manage Slider");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyEditButtonFunctionalityInManageSlider() throws IOException
+	public void verifyEditButtonFunctionalityInManageSlider() 
 	{
 		String link=ExcelUtility.getString(1, 0, GeneralUtilities.excelpath,"ManageSlider");
 		login=new Login(driver);
@@ -42,7 +42,7 @@ public class ManageSilderTest extends Base{
 		assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Failed to update Slider in Manage Slider");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	 public void verifyDeleteButtonFunctionalityUsingAlert() throws IOException
+	 public void verifyDeleteButtonFunctionalityUsingAlert() 
 	 {
 		login=new Login(driver);
 		login.logintoDashboard();
@@ -54,7 +54,7 @@ public class ManageSilderTest extends Base{
 		assertTrue(manageSliderPage.AlertMessageFieldDisplayed(),"Slider is not getting deleted");
 	  }
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyStatusChangeActiveAndInActiveInManageSlider() throws IOException
+	public void verifyStatusChangeActiveAndInActiveInManageSlider() 
 	{
 		 login=new Login(driver);
 		 login.logintoDashboard();

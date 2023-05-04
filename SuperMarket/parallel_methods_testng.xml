@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="methods" thread-count="2" >
+<suite name="Suite" parallel="methods" thread-count="1" >
 <listeners>
 <listener class-name="generaltests.Listeners"/>
 </listeners>
 <parameter name="username" value="admin"/>
 <parameter name="password" value="admin"/>
-
- <test thread-count="5" name="crossbrowsing">
+ <test thread-count="5" name="Test">
 <parameter name="browser" value="chrome"></parameter>
  <classes>
-     <class name="com.obsqura.testscripts.DeliveryBoyTest">
+     <class name="com.obsqura.testscripts.ManageLocationTest">
      <methods>
-         <include name="verifyDeleteButtonFunctionalityUsingAlert"></include>
-         <include name="verifyFontWeightofSearchButton"></include>
+         <include name="verifyLocationAddingFunctionality"></include>    
      </methods>
     </class>
    </classes>

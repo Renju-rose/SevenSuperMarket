@@ -18,7 +18,7 @@ public class ManageProductTest extends Base{
 	ManageProductPage manageProductPage ;
 	Login login;
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifySearchFunctionalityOfManageProduct() throws IOException
+	public void verifySearchFunctionalityOfManageProduct() 
 	{
 		String title=ExcelUtility.getString(0, 0, GeneralUtilities.excelpath,"ManageProduct");
 		login=new Login(driver);
@@ -30,7 +30,7 @@ public class ManageProductTest extends Base{
 		assertTrue(manageProductPage.productCodeButtonIsDisplayed(),"Searched Content-title:Red Meat is not found");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyDeleteFuncionalityOfManageProduct() throws IOException 
+	public void verifyDeleteFuncionalityOfManageProduct() 
 	{
 		login=new Login(driver);
 		login.logintoDashboard();
@@ -42,7 +42,7 @@ public class ManageProductTest extends Base{
 		assertTrue(manageProductPage.AlertMessageFieldDisplayed(),"Product List not deleted");
 	}
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyStatusChangeActiveAndInActiveInManageSlider() throws IOException
+	public void verifyStatusChangeActiveAndInActiveInManageSlider() 
 	{
 		 login=new Login(driver);
 		 login.logintoDashboard();

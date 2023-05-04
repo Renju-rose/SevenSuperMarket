@@ -18,7 +18,7 @@ public class ManagePaymentMethodTest extends Base{
 	ManagePaymentMethodPage managePaymentMethodPage ;
 	Login login;
 	@Test (retryAnalyzer = generaltests.Retry.class)
-	public void verifyEditFunctionalityOfManagePayment() throws IOException
+	public void verifyEditFunctionalityOfManagePayment() 
 	{
 		String paymentType=ExcelUtility.getString(0, 0, GeneralUtilities.excelpath,"ManagePayment");
 		String amount=ExcelUtility.getNumeric(1, 0, GeneralUtilities.excelpath,"ManagePayment");

@@ -9,13 +9,13 @@
   <test thread-count="5" name="testng(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.obsqura.testscripts.DeliveryBoyTest">
+      <class name="com.obsqura.testscripts.AdminUsersTest">
         <methods>
           <include name="initialiseBrowser"/>
-          <include name="verifyEditFunctionalityOfDeliveryBoy"/>
+          <include name="verifyEditFunctionalityOfAdminUsers"/>
           <include name="browserQuit"/>
         </methods>
-      </class> <!-- com.obsqura.testscripts.DeliveryBoyTest -->
+      </class> <!-- com.obsqura.testscripts.AdminUsersTest -->
     </classes>
   </test> <!-- testng(failed) -->
 </suite> <!-- Failed suite [Suite] -->
